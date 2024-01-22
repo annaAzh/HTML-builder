@@ -8,9 +8,11 @@ const {
   writeFile,
 } = require('fs/promises');
 
-mkdir(path.resolve(__dirname, 'project-dist'), (err) => {
-  if (err) console.log(err.message);
-});
+if (!readdir(path.resolve(__dirname, 'project-dist'))) {
+  mkdir(path.resolve(__dirname, 'project-dist'), (err) => {
+    if (err) console.log(err.message);
+  });
+}
 
 const stylesPath = path.join(__dirname, 'styles');
 const fileWritePath = path.join(__dirname, 'project-dist', 'style.css');
