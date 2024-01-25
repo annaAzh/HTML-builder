@@ -78,7 +78,7 @@ function createHtmlWithTemplate(html, componentFolder) {
   readFile(html, { encoding: 'utf-8' })
     .then((data) => {
       templateHtml = data.toString();
-      templateComponents = templateHtml.match(/{{(.*)}}/gi);
+      templateComponents = templateHtml.match(/{{(\w*)}}/gi);
     })
     .then(() => {
       if (templateComponents) {
